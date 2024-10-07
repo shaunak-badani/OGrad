@@ -1,1 +1,0 @@
-add_library(LearningRates StaticLR.cpp TimeBasedDecay.cpp StepDecay.cpp)
