@@ -1,0 +1,3 @@
+[submodule "Macrograd"]
+	path = Macrograd
+	url = git@github.com:shaunak-badani/Macrograd.git
