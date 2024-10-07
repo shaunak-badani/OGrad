@@ -1,3 +1,3 @@
 [submodule "Macrograd"]
-	path = Macrograd
+	path = api/Macrograd
 	url = git@github.com:shaunak-badani/Macrograd.git
