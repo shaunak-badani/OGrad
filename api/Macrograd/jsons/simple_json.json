@@ -1,0 +1,19 @@
+{
+    "num_epochs": 10000,
+    "layers":[
+        {
+            "type": "linear",
+            "input_size": 11,
+            "output_size": 1
+        }
+    ],
+    "learning_rate": {
+        "type": "simple",
+        "value": 0.01
+    },
+    "loss_fn": "root_mean_squared",
+    "dataset_reader": "csv_reader",
+    "dataset" : "monk/train.csv",
+    "batch_size": 1000,
+    "output_folder": "out_models/1_simple_lr"
+}

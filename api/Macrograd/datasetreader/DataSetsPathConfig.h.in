@@ -1,0 +1,9 @@
+#ifndef DATASETS_PATH_CONFIG_H
+#define DATASETS_PATH_CONFIG_H
+
+#include <iostream>
+#include <string>
+
+const std::string DATASETS_PATH = "@DATASETS_PATH@";
+
+#endif

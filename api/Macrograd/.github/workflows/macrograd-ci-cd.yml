@@ -1,0 +1,31 @@
+name: Macrograd
+
+on:
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential cmake
+
+    - name: Configure and build
+      run: |
+        mkdir build
+        cmake -S . -B build
+        cmake --build build
+
+    - name: Run tests
+      run: |
+        cd build/tests
+        ctest --output-on-failure
