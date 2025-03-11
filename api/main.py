@@ -10,13 +10,13 @@ tasks_progress: Dict[str, Dict[str, Any]] = {}
 
 app = FastAPI()
 
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=["http://localhost:5173"],  # React dev server
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],  # React dev server
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class TaskResponse(BaseModel):
     task_id: str
@@ -39,5 +39,3 @@ def process_task(task_id: str):
         progress = int(step * 100 / total_steps)
         tasks_progress[task_id]["progress"] = progress
         print("Progress : ", progress)
-
-    time.sleep(300)
