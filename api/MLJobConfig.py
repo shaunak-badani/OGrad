@@ -3,7 +3,7 @@ import secrets
 class MLJobConfig:
 
     KEY_CHECK_LIST = [
-        ("num_steps", "Number of steps not provided!"),
+        ("num_epochs", "Number of steps not provided!"),
         ("layers", "Layers list not provided!"),
         ("learning_rate", "Learning rate not provided!"),
         ("loss_fn", "Loss fn not provided!"),
