@@ -3,10 +3,12 @@ import { Button } from './ui/button'
 import { useState} from 'react';
 import Layers from './Layers';
 import AddLayer from './AddLayer';
+import { useNavigate } from 'react-router';
 
 
 
 const JobConfig = ({ }) => {
+    const navigate = useNavigate();
 
     const [job, setJob] = useState({
         "num_epochs": 10000,
@@ -41,6 +43,8 @@ const JobConfig = ({ }) => {
     const jobSubmitHandler = async () => {
         const jobConfig = { "job" : job };
         await backendClient.post("/start_task", jobConfig);
+        navigate('/tasks');
+        console.log("Here!")
         // console.log(response.json())
     }
     const [seed, setSeed] = useState(1);
