@@ -23,8 +23,8 @@ const AddLayer = (props: any) => {
     const { addLayer, finalOutputSize } = props; 
     console.log("Final output size: ", finalOutputSize);
 
-    const [inputSize, setInputSize] = useState<Number | null>(finalOutputSize);
-    const [outputSize, setOutputSize] = useState<Number | null>(null);
+    const [inputSize, setInputSize] = useState<number | null>(finalOutputSize);
+    const [outputSize, setOutputSize] = useState<number | null>(null);
     const [layerType, setLayerType] = useState("linear");
 
 
@@ -37,14 +37,14 @@ const AddLayer = (props: any) => {
         addLayer(layer);
     };
 
-    const changeInputSize = (event) => {
+    const changeInputSize = (event: any) => {
         if(event.target.value)
             setInputSize(Number(event.target.value));
         else
             setInputSize(null);
     }
 
-    const changeOutputSize = (event) => {
+    const changeOutputSize = (event: any) => {
         if(event.target.value)
             setOutputSize(Number(event.target.value));
         else
@@ -79,7 +79,7 @@ const AddLayer = (props: any) => {
                         disabled={finalOutputSize !== null}
                         onChange={changeInputSize}
                         placeholder="Input size, e.g. 512"
-                        value={inputSize}
+                        value={inputSize ?? ''}
                         type="number" />
                     </div>
                     <div className="flex flex-col space-y-1.5">
@@ -87,7 +87,7 @@ const AddLayer = (props: any) => {
                     <Input 
                         id="output_size" 
                             onChange={changeOutputSize}
-                            value={outputSize}
+                            value={outputSize ?? ''}
                             placeholder="Output size, e.g. 11" 
                             type="number" />
                     </div>

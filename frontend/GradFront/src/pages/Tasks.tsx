@@ -2,7 +2,6 @@ import BackdropWithSpinner from "@/components/ui/backdropWithSpinner";
 import {
     Table,
     TableBody,
-    TableCell,
     TableHead,
     TableHeader,
     TableRow,

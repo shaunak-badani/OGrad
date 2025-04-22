@@ -1,12 +1,12 @@
 import backendClient from '@/utils/backendClient';
 import { Button } from './ui/button'
-import { useState, useRef } from 'react';
+import { useState} from 'react';
 import Layers from './Layers';
 import AddLayer from './AddLayer';
 
 
 
-const JobConfig = (props) => {
+const JobConfig = ({ }) => {
 
     const [job, setJob] = useState({
         "num_epochs": 10000,
@@ -40,8 +40,8 @@ const JobConfig = (props) => {
 
     const jobSubmitHandler = async () => {
         const jobConfig = { "job" : job };
-        const response =  await backendClient.post("/start_task", jobConfig);
-        console.log(response.json())
+        await backendClient.post("/start_task", jobConfig);
+        // console.log(response.json())
     }
     const [seed, setSeed] = useState(1);
     const reset = () => {
@@ -52,7 +52,7 @@ const JobConfig = (props) => {
         setJob(prevJob => {
             let newJob = {
                 ...prevJob,
-                key: newValue
+                [key]: newValue
             };
             return newJob
         });
