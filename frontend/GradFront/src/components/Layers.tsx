@@ -1,6 +1,6 @@
 import Layer from "./Layer";
 
-const Layers = (props) => {
+const Layers = (props: any) => {
 
     const { layers } = props;
     if(layers.length == 0)

@@ -14,17 +14,17 @@ const Task = (props: any) => {
         if(progress === 1.0)
             return;
 
-        const fetchData = async (interval: any) => {
+        const fetchData = async () => {
           const response = await backendClient.get(`/task-progress/${task["task_id"]}`);
           const currentProgress = response.data.progress;
           setProgress(currentProgress);
-          if(currentProgress === 1.0)
-            clearInterval(interval);
+        //   if(currentProgress === 1.0)
+        //     clearInterval(interval);
         }
-        const interval = setInterval(() => fetchData(interval), 5000);
+        const interVal = setInterval(() => fetchData(), 5000);
 
         return () => {
-            clearInterval(interval);
+            clearInterval(interVal);
         }
       }, []);
     
